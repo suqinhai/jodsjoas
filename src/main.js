@@ -9,17 +9,23 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import App from './App.vue'
 import router from './router'
 import userStore from './store/user'
+import { useThemeStore } from './store/theme'
 import VBus from '@/common/util/v_bus'
 import '@/assets/svg/index.vue'
 import 'virtual:svg-icons-register'
 import initSvgIcon from '@/assets/svg/index.js'
 import 'element-plus/dist/index.css'
+import './common/style/theme/index.scss'
 import './common/style/index.scss'
 
 window.globalVBus = VBus
 
 const app = createApp(App)
 app.use(createPinia()).use(router).use(initSvgIcon)
+
+// 初始化主题
+const themeStore = useThemeStore()
+themeStore.initTheme()
 
 // 注册elementplus图标
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {

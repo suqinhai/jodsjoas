@@ -13,10 +13,10 @@ li {list-style: none;}
 img { border: none;user-select: none; }
 input, button, textarea, select { font-size: 100%; border: none;  }
 .status-success {
-  color:green;
+  color: var(--el-color-success, green);
 }
 .status-pending {
-  color:orange;
+  color: var(--el-color-warning, orange);
 }
 
 

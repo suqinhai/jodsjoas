@@ -144,9 +144,10 @@ const handleTags = (command) => {
     position: relative;
     height: 30px;
     overflow: hidden;
-    background: #fff;
+    background: var(--app-tags-bg, #fff);
     padding-right: 120px;
-    box-shadow: 0 5px 10px #ddd;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
     .el-scrollbar {
         box-sizing: border-box;
@@ -167,22 +168,23 @@ const handleTags = (command) => {
                 overflow: hidden;
                 cursor: pointer;
                 height: 23px;
-                border: 1px solid #e9eaec;
-                background: #fff;
+                border: 1px solid var(--app-tags-border, #e9eaec);
+                background: var(--app-tags-item-bg, #fff);
                 padding: 0 5px 0 12px;
-                color: #666;
+                color: var(--el-text-color-regular, #666);
+                transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 
                 &:not(.active):hover {
-                    background: #f8f8f8;
+                    background: var(--el-fill-color-light, #f8f8f8);
                 }
 
                 &.active {
-                    color: #fff;
-                    border: 1px solid #409eff;
-                    background-color: #409eff;
+                    color: var(--app-tags-item-active-text, #fff);
+                    border: 1px solid var(--app-tags-item-active-bg, #409eff);
+                    background-color: var(--app-tags-item-active-bg, #409eff);
 
                     .tags-li-title {
-                        color: #fff;
+                        color: var(--app-tags-item-active-text, #fff);
                     }
                 }
 
@@ -193,7 +195,7 @@ const handleTags = (command) => {
                     white-space: nowrap;
                     text-overflow: ellipsis;
                     margin-right: 5px;
-                    color: #666;
+                    color: var(--el-text-color-regular, #666);
                 }
             }
         }
@@ -208,9 +210,10 @@ const handleTags = (command) => {
         text-align: center;
         width: 110px;
         height: 30px;
-        background: #fff;
+        background: var(--app-tags-bg, #fff);
         box-shadow: -3px 0 15px 3px rgba(0, 0, 0, 0.1);
         z-index: 10;
+        transition: background-color 0.3s ease;
     }
 }
 </style>

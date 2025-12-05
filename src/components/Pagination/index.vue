@@ -81,7 +81,7 @@ const { getPage, getSize, handlePageChange, handleSizeChange } = useIndexHook(
             width: fit-content;
             flex-shrink: 1;
             padding: 0 20px;
-            color: #606266;
+            color: var(--el-text-color-regular, #606266);
             line-height: 39px;
         }
     }

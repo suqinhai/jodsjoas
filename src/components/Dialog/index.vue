@@ -215,11 +215,11 @@ defineExpose({ showLoading, closeLoading });
         align-items: center;
 
         &:hover {
-            color: #409eff;
+            color: var(--el-color-primary);
         }
     }
     .box-top {
-        border-top: 1px solid #ebeef5;
+        border-top: 1px solid var(--el-border-color-lighter, #ebeef5);
         padding: 20px 40px;
         display: flex;
         flex-direction: column;
@@ -229,11 +229,11 @@ defineExpose({ showLoading, closeLoading });
     }
     .box-top::-webkit-scrollbar-track {
         border-radius: 5px;
-        background-color: #f1f1f1;
+        background-color: var(--el-fill-color-light, #f1f1f1);
     }
     .box-top::-webkit-scrollbar-thumb {
         border-radius: 0;
-        background-color: #c1c1c1;
+        background-color: var(--el-border-color, #c1c1c1);
     }
 
     .table-box {
@@ -241,7 +241,7 @@ defineExpose({ showLoading, closeLoading });
     }
 
     .box-bot {
-        border-top: 1px solid #ebeef5;
+        border-top: 1px solid var(--el-border-color-lighter, #ebeef5);
         height: 80px;
         text-align: right;
         line-height: 76px;

@@ -8,9 +8,9 @@
                     class="header-el-menu"
                     :default-active="onRoutes"
                     mode="horizontal"
-                    background-color="#324157"
-                    text-color="#bfcbd9"
-                    active-text-color="#20a0ff"
+                    :background-color="menuBgColor"
+                    :text-color="menuTextColor"
+                    :active-text-color="menuActiveColor"
                     router
                     :ellipsis="false"
                 >
@@ -82,11 +82,13 @@ import { commonMetasApi } from '@/api/common.js'
 import userStore from '@/store/user'
 import tagsStore from '@/store/tags'
 import commonStore from '@/store/common'
+import { useThemeStore } from '@/store/theme'
 import imgurl from "@/assets/img/img.jpg"
 import { ElMessageBox } from 'element-plus'
 import { NO_CURRENCY_SELECT_PATH } from "@/common/source_map"
 const EditPassword = defineAsyncComponent(() => import('./EditPassword.vue'))
 
+const themeStore = useThemeStore()
 const commonData = commonStore()
 const router = useRouter()
 const route = useRoute()
@@ -99,6 +101,11 @@ const country = ref()
 const onRoutes = computed(() => {
     return route.path;
 });
+
+// 菜单颜色 - 根据主题动态变化
+const menuBgColor = computed(() => themeStore.appliedTheme === 'dark' ? '#1a1a1b' : '#324157')
+const menuTextColor = computed(() => themeStore.appliedTheme === 'dark' ? '#a3a6ad' : '#bfcbd9')
+const menuActiveColor = computed(() => themeStore.appliedTheme === 'dark' ? '#66b1ff' : '#409eff')
 
 watch(country, (newVal) => {
     localStorage.setItem('country', newVal)
@@ -155,11 +162,12 @@ const changeCountry = () => {
     width: 100%;
     height: 70px;
     font-size: 22px;
-    color: #fff;
+    color: var(--app-header-text, #fff);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #324157;
+    background-color: var(--app-header-bg, #324157);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .header-left {
@@ -174,6 +182,7 @@ const changeCountry = () => {
     padding: 0 20px;
     line-height: 70px;
     white-space: nowrap;
+    font-weight: 500;
 }
 
 .header-menu {
@@ -195,6 +204,12 @@ const changeCountry = () => {
             height: 70px;
             line-height: 70px;
             border-bottom: none !important;
+            transition: background-color 0.2s ease;
+        }
+
+        :deep(.el-menu-item:hover),
+        :deep(.el-sub-menu__title:hover) {
+            background-color: var(--app-header-menu-hover-bg, rgba(255, 255, 255, 0.05)) !important;
         }
 
         :deep(.el-sub-menu.is-active > .el-sub-menu__title) {
@@ -207,11 +222,28 @@ const changeCountry = () => {
     display: flex;
     align-items: center;
     padding-right: 30px;
+    gap: 15px;
 }
 
 .header-right-country {
     width: 120px;
-    margin-right: 15px;
+
+    :deep(.el-input__wrapper) {
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: none;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+    }
+
+    :deep(.el-input__inner) {
+        color: var(--app-header-text, #fff);
+    }
+
+    :deep(.el-select__caret) {
+        color: var(--app-header-text, #fff);
+    }
 }
 
 .header-user-con {
@@ -229,10 +261,15 @@ const changeCountry = () => {
 }
 
 .el-dropdown-link {
-    color: #fff;
+    color: var(--app-header-text, #fff);
     cursor: pointer;
     display: flex;
     align-items: center;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .el-dropdown-menu__item {

@@ -5,8 +5,11 @@
 -->
 <template>
     <div class="sidebar">
-        <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="sidebar.collapse" background-color="#324157" text-color="#bfcbd9"
-            active-text-color="#20a0ff" unique-opened router>
+        <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="sidebar.collapse"
+            :background-color="menuBgColor"
+            :text-color="menuTextColor"
+            :active-text-color="menuActiveColor"
+            unique-opened router>
             <template v-for="item in userData.menuList">
                 <template v-if="item.children">
                     <el-sub-menu :index="item.path" :key="item.path">
@@ -51,7 +54,9 @@ import { computed } from "vue";
 import useSidebarStore from "@/store/sidebar";
 import userStore from "@/store/user";
 import { useRoute } from "vue-router";
+import { useThemeStore } from '@/store/theme'
 
+const themeStore = useThemeStore()
 const sidebar = useSidebarStore();
 const userData = userStore()
 
@@ -60,6 +65,10 @@ const onRoutes = computed(() => {
     return route.path;
 });
 
+// 菜单颜色 - 根据主题动态变化
+const menuBgColor = computed(() => themeStore.appliedTheme === 'dark' ? '#1a1a1b' : '#324157')
+const menuTextColor = computed(() => themeStore.appliedTheme === 'dark' ? '#a3a6ad' : '#bfcbd9')
+const menuActiveColor = computed(() => themeStore.appliedTheme === 'dark' ? '#66b1ff' : '#409eff')
 
 </script>
 
@@ -71,7 +80,8 @@ const onRoutes = computed(() => {
     top: 70px;
     bottom: 0;
     overflow-y: scroll;
-    background-color: #324157;
+    background-color: var(--app-header-bg, #324157);
+    transition: background-color 0.3s ease;
     .menu-box {
         display: inline-flex;
         width: 15px !important;

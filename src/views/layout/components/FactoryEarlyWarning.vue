@@ -48,7 +48,7 @@ const cancel = () => {
     margin-bottom: 20px;
 
     .name {
-        color: #409eff;
+        color: var(--el-color-primary);
         padding: 0 10px;
     }
 }

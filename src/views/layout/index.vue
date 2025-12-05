@@ -120,11 +120,12 @@ const showNext = () => {
         width: auto;
         height: calc(100% - 30px);
         box-sizing: border-box;
-        background-color: #fff;
+        background-color: var(--app-main-bg, #fff);
         border-radius: 6px;
         padding: 20px 20px 30px;
         overflow: auto;
-        border: 20px solid #f0f0f0;
+        border: 20px solid var(--app-content-bg, #f0f0f0);
+        transition: background-color 0.3s ease, border-color 0.3s ease;
         .page-container {
             width: 100%;
             height: 100%;

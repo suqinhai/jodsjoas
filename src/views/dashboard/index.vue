@@ -33,7 +33,7 @@ onBeforeMount(async () => {
 .dashboard {
     display: flex;
     flex-direction: column;
-    color: #606266;
+    color: var(--el-text-color-regular, #606266);
 
     .head {
         font-size: 20px;

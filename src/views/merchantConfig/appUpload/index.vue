@@ -14,7 +14,7 @@
                 <template #default="{ row }">
                     <div class="preview">
                         <span>{{row.url}}</span>
-                        <el-icon v-if="row.url" class="pointer" style="margin-left: 10px;" color="#409eff" :size="18" @click="copyText(row.url)">
+                        <el-icon v-if="row.url" class="pointer icon-primary" style="margin-left: 10px;" :size="18" @click="copyText(row.url)">
                             <DocumentCopy />
                         </el-icon>
                     </div>

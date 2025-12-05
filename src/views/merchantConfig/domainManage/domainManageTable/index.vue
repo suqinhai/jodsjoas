@@ -48,7 +48,7 @@
                 <template #default="{ row }">
                     <div class="row-items">
                         <span>{{row.name}}</span>
-                        <el-icon v-if="row.name" class="pointer" style="margin-left: 10px;" color="#409eff" :size="18" @click="copyText(row.name)">
+                        <el-icon v-if="row.name" class="pointer icon-primary" style="margin-left: 10px;" :size="18" @click="copyText(row.name)">
                             <DocumentCopy />
                         </el-icon>
                     </div>
@@ -60,7 +60,7 @@
                         <div class="row-items-left">
                             <div v-for="(item,index) in row.nameServerList" :key='index' class="row-items">
                                 <span>{{item}}</span>
-                                <el-icon v-if="row" class="pointer" style="margin-left: 10px" color="#409eff" :size="18" @click="copyText(item)">
+                                <el-icon v-if="row" class="pointer icon-primary" style="margin-left: 10px" :size="18" @click="copyText(item)">
                                     <DocumentCopy />
                                 </el-icon>
                             </div>
