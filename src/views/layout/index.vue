@@ -1,8 +1,7 @@
 <template>
     <div>
         <Navbar></Navbar>
-        <Sidebar v-if="userData.menuList.length"></Sidebar>
-        <div v-if="userData.menuList.length" class="content-box" :class="{ 'content-collapse': sidebar.collapse }">
+        <div v-if="userData.menuList.length" class="content-box">
             <Tags></Tags>
             <div class="content" v-loading="loading">
                 <router-view v-slot="{ Component }">
@@ -29,19 +28,16 @@ import { useRoute, useRouter } from 'vue-router'
 import { onBeforeMount, onMounted, ref, reactive, defineAsyncComponent, nextTick } from 'vue'
 import { findPathInList, findFirstMenuPage } from '@common/util'
 import { EXTRA_PAGE_PATH } from '@common/source_map/index.js'
-import useSidebarStore from '@/store/sidebar'
 import useTagsStore from '@/store/tags'
 import userStore from '@/store/user'
 import commonStore from '@/store/common'
 import Navbar from './components/Navbar.vue'
-import Sidebar from './components/Sidebar.vue'
 import Tags from './components/Tags.vue'
 const FactoryEarlyWarning = defineAsyncComponent(() => import('./components/FactoryEarlyWarning.vue'))
 const MerchantDetail = defineAsyncComponent(() => import('@/components/MerchantDetail/index.vue'))
 const Pagination = defineAsyncComponent(() => import('@/components/Pagination/index.vue'))
 const Dialog = defineAsyncComponent(() => import('@/components/Dialog/index.vue'))
 
-const sidebar = useSidebarStore()
 const tags = useTagsStore()
 const userData = userStore()
 const commonData = commonStore()

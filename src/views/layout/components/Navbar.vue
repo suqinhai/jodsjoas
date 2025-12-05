@@ -1,15 +1,49 @@
 <template>
     <div class="header">
-        <!-- 折叠按钮 -->
-        <div class="collapse-btn" @click="collapseChage">
-            <el-icon v-if="sidebar.collapse">
-                <Expand />
-            </el-icon>
-            <el-icon v-else>
-                <Fold />
-            </el-icon>
+        <div class="header-left">
+            <div class="logo">总台管理系统</div>
+            <!-- 顶部菜单 -->
+            <div class="header-menu" v-if="userData.menuList.length">
+                <el-menu
+                    class="header-el-menu"
+                    :default-active="onRoutes"
+                    mode="horizontal"
+                    background-color="#324157"
+                    text-color="#bfcbd9"
+                    active-text-color="#20a0ff"
+                    router
+                    :ellipsis="false"
+                >
+                    <template v-for="item in userData.menuList">
+                        <template v-if="item.children">
+                            <el-sub-menu :index="item.path" :key="item.path" :popper-offset="0">
+                                <template #title>
+                                    <svg-icon :iconClass="item.icon" class="menu-icon"></svg-icon>
+                                    <span>{{ item.name }}</span>
+                                </template>
+                                <template v-for="subItem in item.children">
+                                    <el-sub-menu v-if="subItem.children" :index="subItem.path" :key="subItem.path">
+                                        <template #title>{{ subItem.name }}</template>
+                                        <el-menu-item v-for="(threeItem, i) in subItem.children" :key="i" :index="threeItem.path">
+                                            {{ threeItem.name }}
+                                        </el-menu-item>
+                                    </el-sub-menu>
+                                    <el-menu-item v-else :index="subItem.path">
+                                        {{ subItem.name }}
+                                    </el-menu-item>
+                                </template>
+                            </el-sub-menu>
+                        </template>
+                        <template v-else>
+                            <el-menu-item :index="item.path" :key="item.path">
+                                <svg-icon :iconClass="item.icon" class="menu-icon"></svg-icon>
+                                <span>{{ item.name }}</span>
+                            </el-menu-item>
+                        </template>
+                    </template>
+                </el-menu>
+            </div>
         </div>
-        <div class="logo">总台管理系统</div>
 
         <div class="header-right">
             <div class="header-right-country" v-if="isShow">
@@ -18,17 +52,6 @@
                 </el-select>
             </div>
             <div class="header-user-con">
-                <!-- 消息中心 -->
-                <!-- <div class="btn-bell" @click="router.push('/tabs')">
-          <el-tooltip
-            effect="dark"
-            :content="message ? `有${message}条未读消息` : `消息中心`"
-            placement="bottom"
-          >
-            <i class="el-icon-lx-notice"></i>
-          </el-tooltip>
-          <span class="btn-bell-badge" v-if="message"></span>
-        </div> -->
                 <!-- 用户头像 -->
                 <el-avatar class="user-avator" :size="30" :src="imgurl" />
                 <!-- 用户名下拉菜单 -->
@@ -43,7 +66,6 @@
                         <el-dropdown-menu>
                             <el-dropdown-item command="editPassword">修改密码</el-dropdown-item>
                             <el-dropdown-item divided command="loginout">退出登录</el-dropdown-item>
-                            <!-- <el-dropdown-item command="loginout">退出登录</el-dropdown-item> -->
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -57,7 +79,6 @@
 import { ref, onMounted, defineAsyncComponent, watch, computed } from "vue";
 import { useRouter, useRoute } from 'vue-router'
 import { commonMetasApi } from '@/api/common.js'
-import useSidebarStore from "@/store/sidebar"
 import userStore from '@/store/user'
 import tagsStore from '@/store/tags'
 import commonStore from '@/store/common'
@@ -67,19 +88,17 @@ import { NO_CURRENCY_SELECT_PATH } from "@/common/source_map"
 const EditPassword = defineAsyncComponent(() => import('./EditPassword.vue'))
 
 const commonData = commonStore()
-const message = 2
 const router = useRouter()
 const route = useRoute()
-const sidebar = useSidebarStore();
 const userData = userStore()
 const editPasswordShow = ref(null)
 const countryList = ref()
 const country = ref()
 
-// 侧边栏折叠
-const collapseChage = () => {
-    sidebar.handleCollapse()
-}
+// 当前激活的路由
+const onRoutes = computed(() => {
+    return route.path;
+});
 
 watch(country, (newVal) => {
     localStorage.setItem('country', newVal)
@@ -89,9 +108,6 @@ watch(country, (newVal) => {
 const isShow = computed(() => !NO_CURRENCY_SELECT_PATH.includes(route.path))
 
 onMounted(async () => {
-    if (document.body.clientWidth < 1500) {
-        collapseChage();
-    }
     country.value = commonData.country
     const res = await commonMetasApi({ types: 'country' })
     if (res.status === 'OK') {
@@ -102,7 +118,6 @@ onMounted(async () => {
             value: '0'
         })
     }
-
 });
 
 // 登出
@@ -133,7 +148,7 @@ const changeCountry = () => {
     location.reload()
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 .header {
     position: relative;
     box-sizing: border-box;
@@ -141,29 +156,62 @@ const changeCountry = () => {
     height: 70px;
     font-size: 22px;
     color: #fff;
-}
-.collapse-btn {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #324157;
+}
+
+.header-left {
+    display: flex;
     align-items: center;
     height: 100%;
-    float: left;
-    padding: 0 21px;
-    cursor: pointer;
+    flex: 1;
+    overflow: hidden;
 }
+
 .header .logo {
-    float: left;
-    width: 250px;
+    padding: 0 20px;
     line-height: 70px;
+    white-space: nowrap;
 }
+
+.header-menu {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+
+    .header-el-menu {
+        height: 100%;
+        border-bottom: none;
+
+        .menu-icon {
+            font-size: 16px;
+            margin-right: 5px;
+        }
+
+        :deep(.el-menu-item),
+        :deep(.el-sub-menu__title) {
+            height: 70px;
+            line-height: 70px;
+            border-bottom: none !important;
+        }
+
+        :deep(.el-sub-menu.is-active > .el-sub-menu__title) {
+            border-bottom: none !important;
+        }
+    }
+}
+
 .header-right {
-    float: right;
-    padding-right: 50px;
     display: flex;
     align-items: center;
+    padding-right: 30px;
 }
+
 .header-right-country {
     width: 120px;
+    margin-right: 15px;
 }
 
 .header-user-con {
@@ -171,47 +219,22 @@ const changeCountry = () => {
     height: 70px;
     align-items: center;
 }
-.btn-fullscreen {
-    transform: rotate(45deg);
-    margin-right: 5px;
-    font-size: 24px;
-}
-.btn-bell,
-.btn-fullscreen {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    border-radius: 15px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-.btn-bell-badge {
-    position: absolute;
-    right: 4px;
-    top: 0px;
-    width: 8px;
-    height: 8px;
-    border-radius: 4px;
-    background: #f56c6c;
-    color: #fff;
-}
-.btn-bell .el-icon-lx-notice {
-    color: #fff;
-}
+
 .user-name {
     margin-left: 10px;
 }
+
 .user-avator {
     margin-left: 20px;
 }
+
 .el-dropdown-link {
     color: #fff;
     cursor: pointer;
     display: flex;
     align-items: center;
 }
+
 .el-dropdown-menu__item {
     text-align: center;
 }

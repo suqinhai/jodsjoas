@@ -37,15 +37,11 @@ a {
 
 .content-box {
     position: absolute;
-    left: 200px;
+    left: 0;
     right: 0;
     top: 70px;
     bottom: 0;
-    -webkit-transition: left .3s ease-in-out;
-    transition: left .3s ease-in-out;
     background: #f0f0f0;
-    /* overflow: auto; */
-    /* width: 100%; */
 }
 
 .content {
@@ -64,7 +60,7 @@ a {
 }
 
 .content-collapse {
-    left: 65px;
+    /* 顶部菜单模式下不再需要此样式 */
 }
 
 .container {
