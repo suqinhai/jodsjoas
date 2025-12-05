@@ -1,9 +1,4 @@
-/*
- * @Author: yilaisai
- * @Date: 2024-08-26 10:59:30
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-09-14 10:50:21
- */
+
 import { defineStore } from 'pinia'
 import { getUploadLimit } from '@api/common'
 

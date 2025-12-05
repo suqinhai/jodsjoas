@@ -1,9 +1,4 @@
-<!--
- * @Author: yilaisai
- * @Date: 2023-12-13 11:52:06
- * @LastEditors: yilaisai
- * @LastEditTime: 2023-12-22 19:50:43
--->
+
 <template>
     <Dialog :title="'修改'+props.item.type_" width="600px" @close="emits('close')" @confirm="confirmEdit">
         <el-form v-model="formData" label-width="100px">

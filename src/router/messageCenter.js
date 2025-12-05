@@ -1,9 +1,4 @@
-/*
- * @Author: yilaisai
- * @Date: 2024-08-26 10:59:30
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-11-25 17:29:04
- */
+
 const router = [
     {
         path: '/message-center',

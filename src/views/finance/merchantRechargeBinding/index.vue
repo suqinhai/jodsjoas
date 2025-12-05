@@ -1,9 +1,4 @@
-<!--
- * @Author: yilaisai
- * @Date: 2024-11-01 14:25:25
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-11-05 15:50:32
--->
+
 <template>
     <div class="container merchant-recharge-binding-page" >
         <el-tabs type="border-card">

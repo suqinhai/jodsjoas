@@ -1,9 +1,4 @@
-/*
- * @Author: yilaisai
- * @Date: 2024-10-31 17:39:57
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-11-09 11:09:37
- */
+
 const router = [
     {
         path: '/finance',

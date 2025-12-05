@@ -1,11 +1,4 @@
-/*
- * @Author: liqijiang 3045273238@qq.com
- * @Date: 2023-09-21 15:17:50
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-01-05 11:12:02
- * @FilePath: \management-bg\src\views\manageConfig\mixPermission\index.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
+
 import { toRefs, reactive, ref, onMounted, onActivated } from 'vue'
 import { fetchTree } from '@/common/util/index'
 import { roleMenusApi, empRolesApi, roleGrantApi } from '@/api/manageConfig.js'

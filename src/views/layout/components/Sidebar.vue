@@ -1,8 +1,4 @@
-<!--
- * @Date: 2023-08-25 16:33:49
- * @LastEditors: yilaisai
- * @LastEditTime: 2023-12-16 18:34:01
--->
+
 <template>
     <div class="sidebar">
         <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="sidebar.collapse"

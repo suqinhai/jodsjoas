@@ -1,9 +1,4 @@
-<!--
- * @Author: yilaisai
- * @Date: 2024-11-21 20:54:30
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-11-21 21:14:24
--->
+
 <template>
     <!-- 消息中心-平台建议-回复 -->
     <Dialog ref="dialog" width="650" :title="state.title" top="10vh" :operateActions="state.operateActions" :isShowSubmit="state.isShowSubmit"

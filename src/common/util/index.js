@@ -1,10 +1,4 @@
-/*
- * @Author: liqijiang 3045273238@qq.com
- * @Date: 2023-09-05 16:18:09
- * @LastEditors: yilaisai
- * @LastEditTime: 2023-12-22 11:07:48
- * @FilePath: \management-bg\src\common\util\index.js
- */
+
 import XEUtils from 'xe-utils'
 import { Decimal } from 'decimal.js'
 

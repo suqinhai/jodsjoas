@@ -1,17 +1,4 @@
-<!--
- * @Author: yilaisai
- * @Date: 2024-01-30 09:47:12
- * @LastEditors: yilaisai
- * @LastEditTime: 2025-06-12 16:14:46
--->
-<!--
- * @Author: liqijiang 3045273238@qq.com
- * @Date: 2023-11-17 15:10:30
- * @LastEditors: liqijiang 3045273238@qq.com
- * @LastEditTime: 2023-11-20 12:00:20
- * @FilePath: \management-bg\src\views\factoryManage\factoryManage\components\editDialog\index.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
+
 <template>
     <Dialog title="修改厂家信息" top="10vh" @cancel="emits('close')" @confirm="handleConfirm">
         <el-form :model="editForm" ref="editFormRef" label-width="150px">

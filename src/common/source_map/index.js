@@ -1,8 +1,4 @@
-/*
- * @Date: 2023-09-04 11:48:56
- * @LastEditors: yilaisai
- * @LastEditTime: 2025-03-17 16:50:30
- */
+
 
 // 配置常量
 export const GAME_TYPE = [

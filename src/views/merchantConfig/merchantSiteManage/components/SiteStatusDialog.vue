@@ -1,9 +1,4 @@
-<!--
- * @Author: yilaisai
- * @Date: 2024-11-11 16:10:00
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-11-13 18:52:36
--->
+
 <template>
     <Dialog ref="dialog" width="530" :title="props.itemData.type == 'site' ? '站点状态' : '商户状态'" top="10vh" buttonCenter @confirm="handleSubmit(operateForm)" @cancel="cancel">
         <el-form ref="operateForm" :model="state.formData" :rules="state.rules" label-width="85px">

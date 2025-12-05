@@ -1,9 +1,4 @@
-<!--
- * @Author: yilaisai
- * @Date: 2024-08-16 16:00:59
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-08-16 18:19:17
--->
+
 <template>
     <Dialog top="5vh" title="修改子游戏" @close="emits('close')" @confirm="handleConfirm">
         <div class="tips" v-if="editForm.alias == 'PGC' || editForm.alias == 'BPG'">Tips：请在PG类型中更改名称和图标</div>

@@ -1,11 +1,4 @@
-<!--
- * @Author: liqijiang 3045273238@qq.com
- * @Date: 2023-11-20 12:18:21
- * @LastEditors: liqijiang 3045273238@qq.com
- * @LastEditTime: 2023-11-20 12:46:32
- * @FilePath: \management-bg\src\views\enterConfig\enterCostSet\components\addOrEditDialog.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
+
 <template>
     <Dialog ref="dialog" :title="(operateType ? '创建' : '修改') + '商户费用设置'" width="400" @cancel="emits('close')" @close="emits('close')" @confirm="handleConfirm(dialog)">
         <el-form :model="form" ref="formRef" label-width="120px" :rules="rules">

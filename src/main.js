@@ -1,8 +1,4 @@
-/*
- * @Date: 2023-08-25 16:33:49
- * @LastEditors: Sai
- * @LastEditTime: 2023-09-11 15:38:00
- */
+
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'

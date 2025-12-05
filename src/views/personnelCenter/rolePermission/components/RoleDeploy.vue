@@ -1,9 +1,4 @@
-<!--
- * @Author: yilaisai
- * @Date: 2024-12-02 17:41:32
- * @LastEditors: yilaisai
- * @LastEditTime: 2025-01-09 20:02:25
--->
+
 <template>
     <!-- 权限设置-新增/修改 -->
     <Dialog ref="dialog" width="500" :title="state.title" top="10vh" @confirm="handleSubmit(deployForm)" @cancel="cancel">

@@ -1,9 +1,4 @@
-/*
- * @Author: liqijiang 3045273238@qq.com
- * @Date: 2023-09-07 12:54:57
- * @LastEditors: liqijiang 3045273238@qq.com
- * @LastEditTime: 2023-11-07 16:25:23
- */
+
 import { reactive,toRefs } from "vue"
 
 export const useFormDialogHook=(emits,props)=>{

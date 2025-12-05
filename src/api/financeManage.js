@@ -1,9 +1,4 @@
-/*
- * @Author: yilaisai
- * @Date: 2024-06-27 12:00:29
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-11-05 15:55:46
- */
+
 import $http from '@/common/util/http.js'
 
 // 人工出入款-查询

@@ -1,9 +1,4 @@
-<!--
- * @Author: yilaisai
- * @Date: 2024-11-01 15:58:55
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-11-05 16:04:03
--->
+
 <template>
     <DialogHook title='修改充值账号' @confirm="submit" @close="emits('close')" ref="dialog">
         <el-form :model="state.checkForm" label-width="150px">

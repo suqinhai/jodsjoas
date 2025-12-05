@@ -1,9 +1,4 @@
-<!--
- * @Author: liqijiang 3045273238@qq.com
- * @Date: 2023-09-07 12:54:57
- * @LastEditors: yilaisai
- * @LastEditTime: 2023-12-13 19:36:33
--->
+
 <template>
     <el-dialog :close-on-press-escape="escClose" v-model="isShowDialog" destroy-on-close :title="title" :width="width"
         :draggable="draggable" :close-on-click-modal="modelClose" modal-class="dialog-hook" :append-to-body="appendToBody"

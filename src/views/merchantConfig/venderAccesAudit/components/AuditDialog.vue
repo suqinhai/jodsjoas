@@ -1,9 +1,4 @@
-<!--
- * @Author: yilaisai
- * @Date: 2024-01-30 09:47:12
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-01-30 10:30:38
--->
+
 <template>
     <Dialog ref="dialog" width="600" title="审核" top="10vh" :isCancel="false" :operateActions="['拒绝', '通过']"
         @confirm="handleSubmit(2)" @cancel="handleSubmit(3)" @close="emits('close')">

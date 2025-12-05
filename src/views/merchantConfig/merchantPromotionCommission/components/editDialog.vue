@@ -1,9 +1,4 @@
-<!--
- * @Author: yilaisai
- * @Date: 2024-11-01 15:58:55
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-11-07 15:31:31
--->
+
 <template>
     <DialogHook title='商户推广佣金配置' @confirm="submit" @close="emits('close')" ref="dialog">
         <el-form :model="state.checkForm" label-width="150px">

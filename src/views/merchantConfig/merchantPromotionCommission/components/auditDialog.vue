@@ -1,9 +1,4 @@
-<!--
- * @Author: yilaisai
- * @Date: 2024-11-01 15:58:55
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-11-08 18:22:18
--->
+
 <template>
     <DialogHook title='审核' @confirm="submit('pass')" @close="emits('close')" @otherEvent="submit('reject')" :otherBtn="[{type:'default', label:'拒绝', value:'4'}]" cancelText="取消" confirmText="通过"  ref="dialog">
         <el-form :model="state.checkForm" label-width="150px">
