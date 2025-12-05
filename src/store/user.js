@@ -1,8 +1,4 @@
-/*
- * @Date: 2023-09-08 10:06:56
- * @LastEditors: yilaisai
- * @LastEditTime: 2024-01-04 16:15:07
- */
+
 import { defineStore } from 'pinia'
 import { fetchTree, setPath, token } from '../common/util'
 import { getMenuList, loginApi, empLogoutApi } from '@api/common'
