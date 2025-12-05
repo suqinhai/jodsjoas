@@ -99,7 +99,7 @@ useTagsStore().clearTags()
     line-height: 50px;
     text-align: center;
     font-size: 20px;
-    color: #fff;
+    color: #999;
     border-bottom: 1px solid #ddd;
 }
 .ms-login {
