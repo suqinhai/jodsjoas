@@ -13,6 +13,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import legacy from '@vitejs/plugin-legacy'
 import path from 'path'
 
+
 const resolve = (file) => path.resolve(__dirname, './' + file)
 const alias = {
     '@': resolve('./src'),
@@ -22,6 +23,7 @@ const alias = {
 }
 
 export default defineConfig(({ common, mode }) => {
+    const env = loadEnv(mode, path.resolve(__dirname, './env'))
     return {
         server: {
             host: '0.0.0.0',
@@ -114,7 +116,7 @@ export default defineConfig(({ common, mode }) => {
         },
         cssCodeSplit: true,
         sourcemap: false,
-        base: '/',
+        base: env.VITE_BASE_PATH || '/',
         root: './',
         // css: {
         //     preprocessorOptions: {
