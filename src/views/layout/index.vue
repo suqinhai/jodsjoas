@@ -6,7 +6,7 @@
             <div class="content" v-loading="loading">
                 <router-view v-slot="{ Component }">
                     <transition name="move" mode="out-in">
-                        <div :key="useRoute.path" class="page-container">
+                        <div :key="route.path" class="page-container">
                             <keep-alive :include="tags.nameList">
                                 <component :is="Component"></component>
                             </keep-alive>

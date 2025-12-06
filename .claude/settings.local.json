@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir /b \"C:\\Users\\kpskp\\Desktop\\新建文件夹\\as-web\\asia-management-bg\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
