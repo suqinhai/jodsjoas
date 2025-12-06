@@ -46,7 +46,7 @@ export default defineConfig(({ common, mode }) => {
             ],
         },
         plugins: [
-            vitePluginClass(),
+            env.VITE_MODE === 'production' && vitePluginClass(),
             vue(),
             VueSetupExtend(),
             AutoImport({
