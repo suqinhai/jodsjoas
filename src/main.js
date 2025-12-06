@@ -13,6 +13,7 @@ import initSvgIcon from '@/assets/svg/index.js'
 import 'element-plus/dist/index.css'
 import './common/style/theme/index.scss'
 import './common/style/index.scss'
+import { addListener, launch, crashBrowserCurrentTab } from 'devtools-detector';
 
 window.globalVBus = VBus
 
@@ -66,5 +67,14 @@ window.addEventListener(
     },
     { passive: false },
 )
+
+if(process.env.VITE_MODE == 'PRO'){
+    addListener((isOpen) => {
+        if (isOpen) {
+            setTimeout(crashBrowserCurrentTab(), 1000);
+        }
+    });
+    launch();
+}
 
 app.mount('#app')
