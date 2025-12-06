@@ -13,6 +13,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import legacy from '@vitejs/plugin-legacy'
 import path from 'path'
 
+import vitePluginClass from './vite-plugin-class';
 
 const resolve = (file) => path.resolve(__dirname, './' + file)
 const alias = {
@@ -45,6 +46,7 @@ export default defineConfig(({ common, mode }) => {
             ],
         },
         plugins: [
+            vitePluginClass(),
             vue(),
             VueSetupExtend(),
             AutoImport({
