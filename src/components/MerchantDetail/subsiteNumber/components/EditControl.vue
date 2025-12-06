@@ -3,7 +3,7 @@
     <Dialog ref="dialog" :title="'修改控制'" buttonCenter top="15vh"
         @confirm="handleSubmit(operateForm)" @cancel="cancel">
         <el-form ref="operateForm" :rules="state.rules" :model="state.formData" label-width="150px">
-			<el-form-item class="items" label="NEWPG模式:">
+			<el-form-item class="items" label="模式:">
 			    <el-radio-group v-model="state.formData.ctrlMode">
 			        <el-radio :label="1">专业模式</el-radio>
 			        <el-radio :label="0">简易模式</el-radio>

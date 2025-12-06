@@ -9,7 +9,7 @@
                 </el-radio-group>
             </el-form-item>
 			<template v-if="state.formData.commissionMode == 2">
-				<el-form-item label="NEWPG电子:">
+				<el-form-item label="电子:">
 					<el-form-item label="rtp＞100抽成(%):" prop="rtpUpRate" label-width="140px" style="margin-bottom: 10px;">
 						<el-input class="inputWidth" v-model="state.formData.PGC.rtpUpRate" placeholder="请输入(0-100)范围内的值" :maxlength="8" style="width: 200px;"></el-input>
 					</el-form-item>
@@ -17,7 +17,7 @@
 						<el-input class="inputWidth" v-model="state.formData.PGC.rtpDnRate" placeholder="请输入(0-100)范围内的值" :maxlength="8" style="width: 200px;"></el-input>
 					</el-form-item>
 				 </el-form-item>
-				 <el-form-item label="NEWJILI电子:">
+				 <el-form-item label="电子:">
 				 	<el-form-item label="rtp＞100抽成(%):" prop="rtpUpRate" label-width="140px" style="margin-bottom: 10px;">
 				 		<el-input class="inputWidth" v-model="state.formData.NJL.rtpUpRate" placeholder="请输入(0-100)范围内的值" :maxlength="8" style="width: 200px;"></el-input>
 				 	</el-form-item>
@@ -25,7 +25,7 @@
 				 		<el-input class="inputWidth" v-model="state.formData.NJL.rtpDnRate" placeholder="请输入(0-100)范围内的值" :maxlength="8" style="width: 200px;"></el-input>
 				 	</el-form-item>
 				  </el-form-item>
-                <el-form-item label="NEWPP电子:">
+                <el-form-item label="电子:">
 				 	<el-form-item label="rtp＞100抽成(%):" prop="rtpUpRate" label-width="140px" style="margin-bottom: 10px;">
 				 		<el-input class="inputWidth" v-model="state.formData.NPP.rtpUpRate" placeholder="请输入(0-100)范围内的值" :maxlength="8" style="width: 200px;"></el-input>
 				 	</el-form-item>
@@ -35,16 +35,16 @@
 				</el-form-item>
 			</template>	
             <template v-if="state.formData.commissionMode == 1">
-				<el-form-item label="NEWPG抽成:" prop="shareRate">
-				    <el-input-number class="special-input" v-model="state.formData.PGC.shareRate" :controls=" false" :min="0" placeholder="请输入NEWPG抽成"
+				<el-form-item label="抽成:" prop="shareRate">
+				    <el-input-number class="special-input" v-model="state.formData.PGC.shareRate" :controls=" false" :min="0" placeholder="请输入抽成"
 				        style="width: 100%;" />
 				</el-form-item>
-				<el-form-item label="NEWJILI抽成:" prop="shareRate">
-				    <el-input-number class="special-input" v-model="state.formData.NJL.shareRate" :controls=" false" :min="0" placeholder="请输入NEWJILI抽成"
+				<el-form-item label="抽成:" prop="shareRate">
+				    <el-input-number class="special-input" v-model="state.formData.NJL.shareRate" :controls=" false" :min="0" placeholder="请输入抽成"
 				        style="width: 100%;" />
 				</el-form-item>
-                <el-form-item label="NEWPP抽成:" prop="shareRate">
-				    <el-input-number class="special-input" v-model="state.formData.NPP.shareRate" :controls=" false" :min="0" placeholder="请输入NEWPP抽成"
+                <el-form-item label="抽成:" prop="shareRate">
+				    <el-input-number class="special-input" v-model="state.formData.NPP.shareRate" :controls=" false" :min="0" placeholder="请输入抽成"
 				        style="width: 100%;" />
 				</el-form-item>
 			</template>
@@ -106,12 +106,12 @@ const handleSubmit = (el) => {
 				data['NJL.rtpDnRate'] = state.formData.NJL.rtpDnRate
                 data['NPP.rtpUpRate'] = state.formData.NPP.rtpUpRate
 				data['NPP.rtpDnRate'] = state.formData.NPP.rtpDnRate
-				if (!(Number(state.formData.PGC.rtpUpRate) <= 100 && Number(state.formData.PGC.rtpUpRate) >= 0)) return ElMessage.warning('NEWPG电子:rtp＞100抽成为(0-100)范围内的值')
-				if (!(Number(state.formData.PGC.rtpDnRate) <= 100 && Number(state.formData.PGC.rtpDnRate) >= 0)) return ElMessage.warning('NEWPG电子:rtp＜100抽成为(0-100)范围内的值')
-				// if (!(Number(state.formData.NJL.rtpUpRate) <= 100 && Number(state.formData.NJL.rtpUpRate) >= 0)) return ElMessage.warning('NEWJILI电子:rtp＞100抽成为(0-100)范围内的值')
-				// if (!(Number(state.formData.NJL.rtpDnRate) <= 100 && Number(state.formData.NJL.rtpDnRate) >= 0)) return ElMessage.warning('NEWJILI电子:rtp＜100抽成为(0-100)范围内的值')
-                if (!(Number(state.formData.NPP.rtpUpRate) <= 100 && Number(state.formData.NPP.rtpUpRate) >= 0)) return ElMessage.warning('NEWPP电子:rtp＞100抽成为(0-100)范围内的值')
-				if (!(Number(state.formData.NPP.rtpDnRate) <= 100 && Number(state.formData.NPP.rtpDnRate) >= 0)) return ElMessage.warning('NEWPP电子:rtp＜100抽成为(0-100)范围内的值')
+				if (!(Number(state.formData.PGC.rtpUpRate) <= 100 && Number(state.formData.PGC.rtpUpRate) >= 0)) return ElMessage.warning('电子:rtp＞100抽成为(0-100)范围内的值')
+				if (!(Number(state.formData.PGC.rtpDnRate) <= 100 && Number(state.formData.PGC.rtpDnRate) >= 0)) return ElMessage.warning('电子:rtp＜100抽成为(0-100)范围内的值')
+				// if (!(Number(state.formData.NJL.rtpUpRate) <= 100 && Number(state.formData.NJL.rtpUpRate) >= 0)) return ElMessage.warning('电子:rtp＞100抽成为(0-100)范围内的值')
+				// if (!(Number(state.formData.NJL.rtpDnRate) <= 100 && Number(state.formData.NJL.rtpDnRate) >= 0)) return ElMessage.warning('电子:rtp＜100抽成为(0-100)范围内的值')
+                if (!(Number(state.formData.NPP.rtpUpRate) <= 100 && Number(state.formData.NPP.rtpUpRate) >= 0)) return ElMessage.warning('电子:rtp＞100抽成为(0-100)范围内的值')
+				if (!(Number(state.formData.NPP.rtpDnRate) <= 100 && Number(state.formData.NPP.rtpDnRate) >= 0)) return ElMessage.warning('电子:rtp＜100抽成为(0-100)范围内的值')
 			}
             dialog.value.showLoading()
             postEditMode(data).then(() => {

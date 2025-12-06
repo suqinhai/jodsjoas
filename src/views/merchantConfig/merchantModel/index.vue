@@ -29,7 +29,7 @@
                 </template>
             </el-table-column>
             <el-table-column prop="commissionMode_" label="抽成模式" align="center" />
-            <el-table-column prop="PGC" label="NEWPG打码比例" align="center">
+            <el-table-column prop="PGC" label="打码比例" align="center">
                 <template #default="{ row }">
                     <div v-if="row.commissionMode == 1">{{row.PGC?.shareRate}}</div>
                     <div v-if="row.commissionMode == 2">
@@ -38,7 +38,7 @@
                     </div>
                 </template>
             </el-table-column>
-			<el-table-column prop="NJL" label="NEWJILI打码比例" align="center">
+			<el-table-column prop="NJL" label="打码比例" align="center">
 			    <template #default="{ row }">
 			        <div v-if="row.commissionMode == 1">{{row.NJL?.shareRate}}</div>
 			        <div v-if="row.commissionMode == 2">
@@ -47,7 +47,7 @@
 			        </div>
 			    </template>
 			</el-table-column>
-            <el-table-column prop="NPP" label="NEWPP打码比例" align="center">
+            <el-table-column prop="NPP" label="打码比例" align="center">
                 <template #default="{ row }">
                     <div v-if="row.commissionMode == 1">{{row.NPP?.shareRate}}</div>
                     <div v-if="row.commissionMode == 2">

@@ -125,7 +125,7 @@ const router = [
         component: () =>
             import('@/views/dataCenter/merchantPgcDailyBill/index.vue'),
         meta: {
-            title: '商户NEWPG日账单',
+            title: '商户日账单',
             permiss: 'merchant.merchant-bill.shareDiffDetail',
         },
     },

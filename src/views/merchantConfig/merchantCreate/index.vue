@@ -104,7 +104,7 @@
                     </el-radio-group>
                 </el-form-item>
                 <template v-if="state.form.commissionMode === 2">
-                    <el-form-item label="NEWPG电子:">
+                    <el-form-item label="电子:">
                         <el-form-item label="rtp＞100抽成(%):" label-width="140px">
                             <el-input-number class="inputWidth" v-model="state.form.PGC.rtpUpRate" placeholder="请输入(0-100)范围内的值" :min="0" :max="100"
                                 :controls="false" :precision="4" />
@@ -114,7 +114,7 @@
                                 :controls="false" :precision="4" />
                         </el-form-item>
                     </el-form-item>
-                    <el-form-item label="NEWJILI电子:">
+                    <el-form-item label="电子:">
                         <el-form-item label="rtp＞100抽成(%):" label-width="140px">
                             <el-input-number class="inputWidth" v-model="state.form.NJL.rtpUpRate" placeholder="请输入(0-100)范围内的值" :min="0" :max="100"
                                 :controls="false" :precision="4" />
@@ -124,7 +124,7 @@
                                 :controls="false" :precision="4" />
                         </el-form-item>
                     </el-form-item>
-                    <el-form-item label="NEWPP电子:">
+                    <el-form-item label="电子:">
                         <el-form-item label="rtp＞100抽成(%):" label-width="140px">
                             <el-input-number class="inputWidth" v-model="state.form.NPP.rtpUpRate" placeholder="请输入(0-100)范围内的值" :min="0" :max="100"
                                 :controls="false" :precision="4" />
@@ -353,10 +353,10 @@ const PaymentConfigDialog = defineAsyncComponent(() => import("./components/Paym
 const Explain = defineAsyncComponent(() => import("./components/Explain.vue"))
 
 const skinKeyTitle = {
-    1: '欧洲风-',
-    2: '亚太风-',
-    4: '定制版-',
-    5: '自然风-'
+    1: 'A样式-',
+    2: 'B样式-',
+    4: 'C样式-',
+    5: 'D样式-'
 }
 const router = useRouter()
 const route = useRoute()
@@ -776,12 +776,12 @@ const handleSubmit = (el) => {
     if (!state.form.lineCost) return ElMessage.warning('线路费用不能为空')
     if (typeof state.form.openFee !== 'number') return ElMessage.warning('开版费用不能为空')
     if (state.form.commissionMode === 2) {
-        if (!(Number(state.form.PGC.rtpUpRate) <= 100 && Number(state.form.PGC.rtpUpRate) >= 0)) return ElMessage.warning('NEWPG电子:rtp＞100抽成为(0-100)范围内的值')
-        if (!(Number(state.form.PGC.rtpDnRate) <= 100 && Number(state.form.PGC.rtpDnRate) >= 0)) return ElMessage.warning('NEWPG电子:rtp＜100抽成为(0-100)范围内的值')
-        if (!(Number(state.form.NJL.rtpUpRate) <= 100 && Number(state.form.NJL.rtpUpRate) >= 0)) return ElMessage.warning('NEWJILI电子:rtp＞100抽成为(0-100)范围内的值')
-        if (!(Number(state.form.NJL.rtpDnRate) <= 100 && Number(state.form.NJL.rtpDnRate) >= 0)) return ElMessage.warning('NEWJILI电子:rtp＜100抽成为(0-100)范围内的值')
-        if (!(Number(state.form.NPP.rtpUpRate) <= 100 && Number(state.form.NPP.rtpUpRate) >= 0)) return ElMessage.warning('NEWPP电子:rtp＞100抽成为(0-100)范围内的值')
-        if (!(Number(state.form.NPP.rtpDnRate) <= 100 && Number(state.form.NPP.rtpDnRate) >= 0)) return ElMessage.warning('NEWPP电子:rtp＜100抽成为(0-100)范围内的值')
+        if (!(Number(state.form.PGC.rtpUpRate) <= 100 && Number(state.form.PGC.rtpUpRate) >= 0)) return ElMessage.warning('电子:rtp＞100抽成为(0-100)范围内的值')
+        if (!(Number(state.form.PGC.rtpDnRate) <= 100 && Number(state.form.PGC.rtpDnRate) >= 0)) return ElMessage.warning('电子:rtp＜100抽成为(0-100)范围内的值')
+        if (!(Number(state.form.NJL.rtpUpRate) <= 100 && Number(state.form.NJL.rtpUpRate) >= 0)) return ElMessage.warning('电子:rtp＞100抽成为(0-100)范围内的值')
+        if (!(Number(state.form.NJL.rtpDnRate) <= 100 && Number(state.form.NJL.rtpDnRate) >= 0)) return ElMessage.warning('电子:rtp＜100抽成为(0-100)范围内的值')
+        if (!(Number(state.form.NPP.rtpUpRate) <= 100 && Number(state.form.NPP.rtpUpRate) >= 0)) return ElMessage.warning('电子:rtp＞100抽成为(0-100)范围内的值')
+        if (!(Number(state.form.NPP.rtpDnRate) <= 100 && Number(state.form.NPP.rtpDnRate) >= 0)) return ElMessage.warning('电子:rtp＜100抽成为(0-100)范围内的值')
         let next = true
         state.vendorListNoPGC.forEach((item) => {
             if (!next) return

@@ -1,5 +1,5 @@
 <template>
-    <!-- 商户NEWPG日账单 -->
+    <!-- 商户日账单 -->
     <div class="container">
         <el-form class="filter-form" :model="state.searchForm" inline>
             <el-form-item>

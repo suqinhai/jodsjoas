@@ -99,7 +99,7 @@ const changeType = (item) => {
 }
 
 const confirmEdit = (item) => {
-    if (['NewPG','NewJiLi'].includes(item.alias_) && item.isRtp) {
+    if (['',''].includes(item.alias_) && item.isRtp) {
         if (!(Number(item.newMaRtpUpRate) <= 100 && Number(item.newMaRtpUpRate) >= 0.000001)) return ElMessage.warning('rtp＞100抽成为：(0.000001-100)范围内的值')
         if (!(Number(item.newMaRtpDnRate) <= 100 && Number(item.newMaRtpDnRate) >= 0.000001)) return ElMessage.warning('rtp＜100抽成为：(0.000001-100)范围内的值')
     }

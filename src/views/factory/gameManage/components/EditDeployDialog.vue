@@ -1,9 +1,9 @@
 
 <template>
     <Dialog top="5vh" title="修改子游戏" @close="emits('close')" @confirm="handleConfirm">
-        <div class="tips" v-if="editForm.alias == 'PGC' || editForm.alias == 'BPG'">Tips：请在PG类型中更改名称和图标</div>
+        <div class="tips" v-if="editForm.alias == 'PGC' || editForm.alias == 'TTT'">Tips：请在PG类型中更改名称和图标</div>
         <el-form :model="editForm" label-width="150px">
-            <el-form-item label="游戏名称:" v-if="editForm.alias !== 'PGC' && editForm.alias !== 'BPG'">
+            <el-form-item label="游戏名称:" v-if="editForm.alias !== 'PGC' && editForm.alias !== 'TTT'">
                 <el-input v-model="editForm.name" placeholder="请输入游戏名字" clearable></el-input>
             </el-form-item>
             <el-row>
@@ -29,17 +29,17 @@
             <el-form-item label="维护开关:">
                 <el-switch v-model="editForm.maintain" :active-value="1" :inactive-value="0"></el-switch>
             </el-form-item>
-            <el-form-item label="子游戏图标(欧美):" v-if="editForm.alias !== 'PGC' && editForm.alias !== 'BPG'">
+            <el-form-item label="子游戏图标(欧美):" v-if="editForm.alias !== 'PGC' && editForm.alias !== 'TTT'">
                 <UploadImage v-model="editForm.image_us" :width="LIMIT_US.VENDOR_IMG_WIDTH" bizType="game" :gameParams="getGameParams(1)"
                     :height="LIMIT_US.VENDOR_IMG_HEIGHT" :size="100"
                     :tip="`请上传${LIMIT_US.VENDOR_IMG_WIDTH}*${LIMIT_US.VENDOR_IMG_HEIGHT}或等比例，PNG/JPG格式小于${100}KB的图片`"></UploadImage>
             </el-form-item>
-            <el-form-item label="子游戏图标(亚太):" v-if="editForm.alias !== 'PGC' && editForm.alias !== 'BPG'">
+            <el-form-item label="子游戏图标(亚太):" v-if="editForm.alias !== 'PGC' && editForm.alias !== 'TTT'">
                 <UploadImage v-model="editForm.image_as" :width="LIMIT_AS.HOT_IMG_WIDTH" bizType="game" :gameParams="getGameParams(2)"
                     :height="LIMIT_AS.HOT_IMG_HEIGHT" :size="100"
                     :tip="`请上传${LIMIT_AS.HOT_IMG_WIDTH}*${LIMIT_AS.HOT_IMG_HEIGHT}或等比例，PNG/JPG格式小于${100}KB的图片`"></UploadImage>
             </el-form-item>
-            <el-form-item label="子游戏图标(定制版):" v-if="editForm.alias !== 'PGC' && editForm.alias !== 'BPG'">
+            <el-form-item label="子游戏图标(定制版):" v-if="editForm.alias !== 'PGC' && editForm.alias !== 'TTT'">
                 <UploadImage v-model="editForm.image_c" :width="170" :height="170" :size="100" bizType="game" :gameParams="getGameParams(3)"
                     :tip="`请上传170*170或等比例，PNG/JPG格式小于100KB的图片`"></UploadImage>
             </el-form-item>
